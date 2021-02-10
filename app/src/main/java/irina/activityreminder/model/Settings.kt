@@ -11,11 +11,16 @@ class Settings {
     @Inject
     lateinit var sharedPreferences: SharedPreferences
 
+    private val KEY_REMINDER_PERIOD = "settings.reminderperiod"
+    private val KEY_DO_NOT_NOTIFY_TO = "settings.doNotNotifyTo"
+    private val KEY_DO_NOT_NOTIFY_FROM = "settings.doNotNotifyFrom"
+
     val doNotNotifyFrom: StringSharedPreferencesLiveData
 
     val doNotNotifyTo: StringSharedPreferencesLiveData
 
     val reminderPeriod: IntSharedPreferencesLiveData
+
 
     init {
         ComponentContainer.component.inject(this)
@@ -39,17 +44,10 @@ class Settings {
             )
     }
 
-
     val doNotNotifyPeriodString: String
         get() {
             return "${doNotNotifyFrom.value}~${doNotNotifyTo.value}"
         }
-
-    companion object {
-        private const val KEY_REMINDER_PERIOD = "settings.reminderperiod"
-        private const val KEY_DO_NOT_NOTIFY_TO = "settings.doNotNotifyTo"
-        private const val KEY_DO_NOT_NOTIFY_FROM = "settings.doNotNotifyFrom"
-    }
 
 
 }

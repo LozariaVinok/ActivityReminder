@@ -13,6 +13,8 @@ import kotlin.math.abs
 class TimerManager {
     @Inject
     lateinit var settings: Settings
+    private val MOST_FREQUENT_PERIOD: Long = 1
+    private val FREQUENT_PERIOD: Long = 1000
 
     init {
         component.inject(this)
@@ -121,11 +123,6 @@ class TimerManager {
             doNotNotifyTo[0].toInt(),
             doNotNotifyTo[1].toInt()
         )
-    }
-
-    companion object {
-        private const val MOST_FREQUENT_PERIOD: Long = 1
-        private const val FREQUENT_PERIOD: Long = 1000
     }
 
 }

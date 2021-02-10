@@ -72,11 +72,6 @@ class PieProgressView(context: Context?, attrs: AttributeSet?) :
         return dp * context.resources.displayMetrics.density
     }
 
-    companion object {
-        private const val DEFAULT_VIEW_SIZE = 96
-
-    }
-
     init {
         val backgroundColor: Int = ResourcesCompat.getColor(resources, R.color.colorAccent, null)
         val progressColor: Int = ResourcesCompat.getColor(resources, R.color.colorAccent, null)
@@ -88,6 +83,8 @@ class PieProgressView(context: Context?, attrs: AttributeSet?) :
         progressPaint.color = progressColor
         progressPaint.style = Paint.Style.FILL
     }
+
+    private val DEFAULT_VIEW_SIZE = 96
 }
 
 @BindingAdapter("app:progress")
